@@ -1,0 +1,172 @@
+@import "/src/components/mixin";
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  background-color: #f9fafb;
+}
+
+.mainContainer {
+  padding: 67px 94px;
+}
+
+.airlines {
+  font-size: 44px;
+  font-weight: 900px;
+  color: #000000;
+  margin: 0px 0px 73px 0px;
+}
+
+.alliance {
+  font-size: 16px;
+  font-weight: bold;
+  color: #192024;
+  margin-bottom: 23px;
+}
+
+.checkboxValue {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 56px;
+
+  .inputDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 24px;
+  }
+  input {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: normal;
+    color: #192024;
+  }
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 16px;
+  column-gap: 16px;
+}
+
+.gridItem {
+  height: 240px;
+  max-width: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 -1px 4px rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // column-gap: 18px;
+  transition: ease-out 0.6s;
+
+  .itemName {
+    font-size: 14px;
+    font-weight: bold;
+    color: #192024;
+  }
+
+  .itemDetails {
+    .airsName {
+      font-weight: bold !important;
+      @include textSpecification;
+    }
+    .airsAlliance {
+      @include textSpecification;
+    }
+    .airsPhone {
+      @include textSpecification;
+    }
+    .airsUrl {
+      color: #5a6872 !important;
+      @include textSpecification;
+    }
+    // display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid #363f45;
+    transform: scale(1.1);
+    z-index: 10;
+    transition: ease-in 0.22s;
+
+    // .itemDetails {
+    //   display: block;
+    //   .airsName {
+    //     font-weight: bold !important;
+    //     @include textSpecification;
+    //   }
+    //   .airsAlliance {
+    //     @include textSpecification;
+    //   }
+    //   .airsPhone {
+    //     @include textSpecification;
+    //   }
+    //   .airsUrl {
+    //     color: #5a6872 !important;
+    //     @include textSpecification;
+    //   }
+    // }
+    .itemName {
+      display: none;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mainContainer {
+    padding: 15px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mainContainer {
+    padding: 15px;
+  }
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .mainContainer {
+    padding: 67px 94px !important;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .mainContainer {
+    padding: 67px 94px !important;
+  }
+}
